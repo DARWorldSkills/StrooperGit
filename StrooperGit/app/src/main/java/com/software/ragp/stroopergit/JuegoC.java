@@ -8,11 +8,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-public class Juego extends AppCompatActivity implements View.OnClickListener{
+public class JuegoC extends AppCompatActivity implements View.OnClickListener{
     TextView txtaciertos, txttiempo, txtintentos, txtcorrectas, txtincorrectas, txtpalabra;
     Button btnColor1, btnColor2, btnColor3, btnColor4;
     int [] segundos ={30, 0};
@@ -25,7 +24,7 @@ public class Juego extends AppCompatActivity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_juego);
+        setContentView(R.layout.activity_juego_c);
         correctas=0;
         incorrectas=0;
         aciertos=0;
@@ -83,7 +82,7 @@ public class Juego extends AppCompatActivity implements View.OnClickListener{
         if ((intentos==3 || segundos[0]==0) && ab==0 ){
             ab=1;
             bandera=false;
-            Intent intent = new Intent(Juego.this, Resumen.class);
+            Intent intent = new Intent(JuegoC.this, Resumen.class);
             startActivity(intent);
             finish();
         }

@@ -3,4 +3,7 @@
     <string name="jugar">Jugar</string>
     <string name="puntaje">Puntaje</string>
     <string name="configuracion">Configuración</string>
+    <string name="Tiempo">Tiempo</string>
+    <string name="intentos">Intentos</string>
+    <string name="ingreseeltiempo">Ingrese el tiempo</string>
 </resources>
