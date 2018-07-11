@@ -10,8 +10,8 @@ import java.util.List;
 
 public class GestorDB extends SQLiteOpenHelper{
 
-    public GestorDB(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public GestorDB(Context context) {
+        super(context, "datos.db", null, 1);
     }
 
     @Override

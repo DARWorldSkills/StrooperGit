@@ -8,17 +8,33 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/logoapp"
         android:supportsRtl="true"
+<<<<<<< HEAD
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".Splash" android:screenOrientation="portrait">
+=======
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".Splash"
+            android:screenOrientation="portrait">
+>>>>>>> 3023f63d5ee3fcd46451de0fd8cfdc4631ef50ee
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Menu" android:screenOrientation="portrait" />
-        <activity android:name=".Juego" android:screenOrientation="portrait" />
-        <activity android:name=".Resumen" android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Menu"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Juego"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Resumen"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Puntaje" />
+        <activity android:name=".JuegoC" />
+        <activity android:name=".Configuracion"></activity>
     </application>
 
 </manifest>
