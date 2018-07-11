@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -15,8 +16,8 @@ public class Juego extends AppCompatActivity implements View.OnClickListener{
     TextView txtaciertos, txttiempo, txtintentos, txtcorrectas, txtincorrectas, txtpalabra;
     Button btnColor1, btnColor2, btnColor3, btnColor4;
     int [] segundos ={30, 0};
-    List<String> listaPalabras;
-    List<Integer> listaColores;
+    List<String> listaPalabras= new ArrayList<>();
+    List<Integer> listaColores=new ArrayList<>();
     boolean bandera = true;
     int ab = 0;
     int icR ,ipR, valorcito;
@@ -54,6 +55,7 @@ public class Juego extends AppCompatActivity implements View.OnClickListener{
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+                            insertarValores();
                             segundos [0]--;
                             segundos [1]++;
                             if (segundos[1]>=3){
