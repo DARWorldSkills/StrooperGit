@@ -152,6 +152,7 @@
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:layout_marginStart="78dp"
+            android:onClick="salir"
             app:srcCompat="@drawable/home" />
 
         <Button
@@ -164,6 +165,7 @@
             android:background="@color/azulicon"
             android:text="Salir"
             android:textSize="18dp"
+            android:onClick="salir"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

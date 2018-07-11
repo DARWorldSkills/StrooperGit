@@ -36,7 +36,7 @@ public class Configuracion extends AppCompatActivity {
         if (rbtnTiempo.isChecked()){
             editor.putInt("modo",1);
         }
-        if (rbtnTiempo.isChecked()){
+        if (rbtnIntentos.isChecked()){
             editor.putInt("modo",2);
         }
         try {
@@ -60,11 +60,11 @@ public class Configuracion extends AppCompatActivity {
             int modo = valores.getInt("modo", 1);
             int tiempo = valores.getInt("tiempo", 3);
             if (modo == 1) {
-                rbtnTiempo.isChecked();
+                rbtnTiempo.setChecked(true);
             }
 
             if (modo == 2) {
-                rbtnIntentos.isChecked();
+                rbtnIntentos.setChecked(true);
             }
             txttiempo.setText(Integer.toString(tiempo));
             ab=1;
