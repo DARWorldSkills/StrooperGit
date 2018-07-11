@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class Resumen extends AppCompatActivity {
@@ -49,4 +50,7 @@ public class Resumen extends AppCompatActivity {
         txtporcentaje = findViewById(R.id.txtAciertosR);
     }
 
+    public void salir(View view) {
+        finish();
+    }
 }

@@ -1,6 +1,7 @@
 package com.software.ragp.stroopergit;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +22,7 @@ public class JuegoC extends AppCompatActivity implements View.OnClickListener{
     int ab = 0;
     int icR ,ipR, valorcito;
     public static int correctas, incorrectas, aciertos, intentos;
+    int modo=1, tiempoP=3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,8 +32,11 @@ public class JuegoC extends AppCompatActivity implements View.OnClickListener{
         aciertos=0;
         intentos=0;
         valorcito=0;
-        segundos =new int[]{30, 0};
+
+
         inizialite();
+        modo_game();
+
         listar();
         randomizar();
         insertarValores();
@@ -39,6 +44,17 @@ public class JuegoC extends AppCompatActivity implements View.OnClickListener{
         bandera =true;
         ab=0;
         goGame();
+    }
+
+    private void modo_game() {
+        SharedPreferences valores = getSharedPreferences("juegoC",MODE_PRIVATE);
+        modo = valores.getInt("modo", 1);
+        tiempoP = valores.getInt("tiempo", 3);
+        if (modo==1){
+            segundos =new int[]{30, 0};
+        }else {
+            segundos =new int[]{0, 0};
+        }
     }
 
     private void goGame() {
@@ -56,10 +72,15 @@ public class JuegoC extends AppCompatActivity implements View.OnClickListener{
                         @Override
                         public void run() {
                             insertarValores();
-                            segundos [0]--;
+                            if (modo==1) {
+                                segundos[0]--;
+                            }
+                            if (modo==2){
+                                segundos[0]++;
+                            }
                             segundos [1]++;
                             txttiempo.setText("Tiempo: "+segundos[0]);
-                            if (segundos[1]>=3){
+                            if (segundos[1]>=tiempoP){
                                 intentos++;
                                 incorrectas++;
                                 segundos[1]=0;
@@ -79,13 +100,23 @@ public class JuegoC extends AppCompatActivity implements View.OnClickListener{
     }
 
     private void endGame() {
-        if ((intentos==3 || segundos[0]==0) && ab==0 ){
+        if ((intentos==3 || segundos[0]==0) && modo==1 && ab==0 ){
             ab=1;
             bandera=false;
             Intent intent = new Intent(JuegoC.this, Resumen.class);
             startActivity(intent);
             finish();
         }
+
+        if ((intentos==3) && modo==2 && ab==0 ){
+            ab=1;
+            bandera=false;
+            Intent intent = new Intent(JuegoC.this, Resumen.class);
+            startActivity(intent);
+            finish();
+        }
+
+
     }
 
     private void inizialite() {

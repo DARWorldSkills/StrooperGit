@@ -80,7 +80,7 @@ public class Juego extends AppCompatActivity implements View.OnClickListener{
     }
 
     private void endGame() {
-        if ((intentos==3 || segundos[0]==0) && ab==0 ){
+        if ((incorrectas==3 || segundos[0]==0) && ab==0 ){
             ab=1;
             bandera=false;
             Intent intent = new Intent(Juego.this, Resumen.class);
@@ -143,7 +143,7 @@ public class Juego extends AppCompatActivity implements View.OnClickListener{
             if (icR==0){
                 correctas++;
             }else {
-                incorrectas--;
+                incorrectas++;
             }
         }
 
@@ -151,7 +151,7 @@ public class Juego extends AppCompatActivity implements View.OnClickListener{
             if (icR==1){
                 correctas++;
             }else {
-                incorrectas--;
+                incorrectas++;
             }
         }
 
@@ -159,7 +159,7 @@ public class Juego extends AppCompatActivity implements View.OnClickListener{
             if (icR==2){
                 correctas++;
             }else {
-                incorrectas--;
+                incorrectas++;
             }
         }
 
@@ -167,11 +167,12 @@ public class Juego extends AppCompatActivity implements View.OnClickListener{
             if (icR==3){
                 correctas++;
             }else {
-                incorrectas--;
+                incorrectas++;
             }
         }
 
         intentos++;
+        endGame();
         insertarValores();
         randomizar();
     }
@@ -184,15 +185,15 @@ public class Juego extends AppCompatActivity implements View.OnClickListener{
             if (correctas==0){
                 aciertos=0;
             }else {
-                double tmp = (intentos/ correctas) *100;
+                double tmp = (correctas/ intentos) *100;
                 aciertos = (int) tmp;
             }
         }
 
         txtcorrectas.setText("Correctas: "+correctas);
         txtincorrectas.setText("Incorrectas: "+incorrectas);
-        txtaciertos.setText("Correctas: "+aciertos);
-        txtintentos.setText("Correctas: "+intentos);
+        txtaciertos.setText("Aciertos: "+aciertos);
+        txtintentos.setText("Intentos: "+intentos);
 
     }
 
