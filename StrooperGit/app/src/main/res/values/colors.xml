@@ -7,4 +7,9 @@
     <color name="colorAzulJ">#0000FF</color>
     <color name="colorRojoJ">#FF0000</color>
     <color name="colorVerdeJ">#00FF00</color>
+
+
+    <color name="azulcalro">#abd0e7</color>
+    <color name="azulmedio">#8ca3b1</color>
+    <color name="azuloscuro">#485963</color>
 </resources>
